@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Ni Putu Gita Dewi Paramitha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #f5c3e6, #b19cd9, #87ceeb);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4a2c5e;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+        
+        .birthday-card {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #e75480;
+            text-shadow: 2px 2px 0px #f9c5d5;
+        }
+        
+        .name {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #4a2c5e;
+            font-weight: 700;
+        }
+        
+        .message {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #5a3c72;
+        }
+        
+        .wishes {
+            background: #f9e6ff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border-left: 5px solid #b19cd9;
+        }
+        
+        .cake-container {
+            position: relative;
+            margin: 30px 0;
+            height: 200px;
+        }
+        
+        .cake {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 70px;
+            background: #f8c8dc;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .cake:before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: #f5a6c6;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .cake:after {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 15px;
+            width: 120px;
+            height: 20px;
+            background: #ff85a2;
+            border-radius: 5px;
+        }
+        
+        .candle {
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(to bottom, #ffaf40, #ff7b25);
+            border-radius: 4px;
+        }
+        
+        .flame {
+            position: absolute;
+            top: -85px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 25px;
+            background: linear-gradient(to top, #ffdb7e, #ff7b25, #ff3c00);
+            border-radius: 50% 50% 20% 20%;
+            animation: flicker 1s infinite alternate;
+            box-shadow: 0 0 15px 5px rgba(255, 120, 0, 0.7);
+        }
+        
+        @keyframes flicker {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(0.9) rotate(2deg);
+            }
+        }
+        
+        .balloons {
+            position: relative;
+            height: 150px;
+            margin: 30px 0;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            border-radius: 50%;
+            animation: float 8s infinite ease-in-out;
+        }
+        
+        .balloon:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 25px;
+            width: 2px;
+            height: 15px;
+            background: #aaa;
+        }
+        
+        .balloon1 {
+            background: #ff5252;
+            left: 20%;
+            animation-delay: 0s;
+        }
+        
+        .balloon2 {
+            background: #448aff;
+            left: 40%;
+            animation-delay: 1s;
+        }
+        
+        .balloon3 {
+            background: #ffeb3b;
+            left: 60%;
+            animation-delay: 2s;
+        }
+        
+        .balloon4 {
+            background: #4caf50;
+            left: 80%;
+            animation-delay: 3s;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+        }
+        
+        .controls {
+            margin-top: 20px;
+        }
+        
+        button {
+            background: #e75480;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        button:hover {
+            background: #ff85a2;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .gift-box {
+            position: relative;
+            margin: 30px auto;
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+        }
+        
+        .box {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            background: #ff5e94;
+            bottom: 0;
+            border-radius: 10px;
+        }
+        
+        .lid {
+            position: absolute;
+            width: 110%;
+            height: 50px;
+            background: #ff85a2;
+            top: 0;
+            left: -5%;
+            border-radius: 10px 10px 0 0;
+            transition: transform 0.5s;
+            transform-origin: bottom;
+        }
+        
+        .ribbon {
+            position: absolute;
+            width: 30px;
+            height: 100%;
+            background: #ffeb3b;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .ribbon:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 30px;
+            background: #ffeb3b;
+            top: 35px;
+        }
+        
+        .gift-box:hover .lid {
+            transform: rotate(-15deg);
+        }
+        
+        .open-message {
+            opacity: 0;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #e75480;
+            transition: opacity 0.5s;
+        }
+        
+        .gift-box:hover + .open-message {
+            opacity: 1;
+        }
+        
+        .music-control {
+            margin-top: 20px;
+        }
+        
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #7b5c93;
+        }
+        
+        @media (max-width: 600px) {
+            .title {
+                font-size: 2.2rem;
+            }
+            
+            .name {
+                font-size: 1.8rem;
+            }
+            
+            .message {
+                font-size: 1rem;
+            }
+            
+            .cake-container {
+                height: 150px;
+            }
+            
+            .cake {
+                width: 120px;
+                height: 60px;
+            }
+            
+            .cake:after {
+                width: 90px;
+                top: -40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="confetti" id="confetti"></div>
+        
+        <div class="birthday-card">
+            <h1 class="title">Selamat Ulang Tahun!</h1>
+            <h2 class="name">Ni Putu Gita Dewi Paramitha</h2>
+            
+            <p class="message">
+                Di hari spesialmu ini, semoga selalu dilimpahkan kebahagiaan, kesehatan, dan kesuksesan dalam segala hal.
+            </p>
+            
+            <div class="wishes">
+                <p>Semoga setiap langkahmu selalu diberkahi, setiap impianmu dapat terwujud, dan setiap harimu dipenuhi dengan senyuman.</p>
+            </div>
+            
+            <div class="cake-container">
+                <div class="cake"></div>
+                <div class="candle"></div>
+                <div class="flame"></div>
+            </div>
+            
+            <div class="balloons">
+                <div class="balloon balloon1"></div>
+                <div class="balloon balloon2"></div>
+                <div class="balloon balloon3"></div>
+                <div class="balloon balloon4"></div>
+            </div>
+            
+            <div class="gift-box">
+                <div class="box"></div>
+                <div class="lid"></div>
+                <div class="ribbon"></div>
+            </div>
+            <div class="open-message">Buka hadiahnya!</div>
+            
+            <div class="controls">
+                <button id="playMusic"><i class="fas fa-music"></i> Putar Musik</button>
+                <button id="stopMusic"><i class="fas fa-stop"></i> Hentikan Musik</button>
+                <button id="confettiBtn"><i class="fas fa-birthday-cake"></i> Konfeti!</button>
+            </div>
+            
+            <div class="music-control">
+                <audio id="birthdaySong" loop>
+                    <source src="https://cdn.pixabay.com/download/audio/2021/10/25/audio_172d7dec2e.mp3?filename=happy-birthday-song-201119.mp3" type="audio/mpeg">
+                    Browser Anda tidak mendukung elemen audio.
+                </audio>
+            </div>
+            
+            <footer>
+                Dibuat dengan ❤ untuk merayakan hari spesialmu
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Fungsi untuk membuat konfeti
+            function createConfetti() {
+                const confettiContainer = document.getElementById('confetti');
+                confettiContainer.innerHTML = '';
+                
+                const colors = ['#ff5252', '#448aff', '#ffeb3b', '#4caf50', '#e75480', '#b19cd9'];
+                
+                for (let i = 0; i < 100; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti-piece';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = Math.random() * 100 + '%';
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    confetti.style.opacity = Math.random() * 0.5 + 0.5;
+                    
+                    confettiContainer.appendChild(confetti);
+                    
+                    // Animasi jatuh
+                    const animationDuration = Math.random() * 3 + 2;
+                    confetti.animate([
+                        { transform: 'translateY(-100vh) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(100vh) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: animationDuration * 1000,
+                        easing: 'cubic-bezier(0.1, 0.8, 0.1, 1)'
+                    });
+                    
+                    // Hapus elemen setelah animasi selesai
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, animationDuration * 1000);
+                }
+            }
+            
+            // Kontrol musik
+            const birthdaySong = document.getElementById('birthdaySong');
+            const playMusicBtn = document.getElementById('playMusic');
+            const stopMusicBtn = document.getElementById('stopMusic');
+            const confettiBtn = document.getElementById('confettiBtn');
+            
+            playMusicBtn.addEventListener('click', function() {
+                birthdaySong.play();
+                createConfetti();
+            });
+            
+            stopMusicBtn.addEventListener('click', function() {
+                birthdaySong.pause();
+                birthdaySong.currentTime = 0;
+            });
+            
+            confettiBtn.addEventListener('click', createConfetti);
+            
+            // Otomatis mainkan konfeti saat halaman dimuat
+            setTimeout(createConfetti, 1000);
+        });
+    </script>
+</body>
+</html>
